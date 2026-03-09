@@ -1,0 +1,362 @@
+/* Basic reset */
+body, h1, h2, p, table, th, td {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+/* load a web font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Dark, mysterious high-tech theme */
+:root {
+    --primary-color: #00ff41; /* Neon green */
+    --secondary-color: #ff0080; /* Neon pink */
+    --accent-color: #0080ff; /* Neon blue */
+    --background-color: #0a0a0a; /* Deep black */
+    --surface-color: #1a1a1a; /* Dark gray */
+    --text-color: #ffffff;
+    --glow: 0 0 10px var(--primary-color);
+}
+
+body {
+    line-height: 1.6;
+    padding: 0;
+    max-width: 100%;
+    margin: 0;
+    background: var(--background-color);
+    color: var(--text-color);
+    position: relative;
+    overflow-x: hidden;
+    background-image: radial-gradient(circle at 20% 50%, rgba(0, 255, 65, 0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 40% 80%, rgba(0, 128, 255, 0.1) 0%, transparent 50%);
+    background-attachment: fixed;
+}
+
+body {
+    padding-top: 100px; /* space for fixed header */
+}
+
+/* Glowing bubbles with neon colors */
+.bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.bubble {
+    position: absolute;
+    width: var(--size, 100px);
+    height: var(--size, 100px);
+    left: var(--x, 50%);
+    top: var(--y, 100%);
+    background: var(--bg, #00ff41);
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: float 25s linear infinite;
+    box-shadow: var(--glow);
+}
+
+@keyframes float {
+    from {transform: translateY(0) scale(1); filter: blur(0px);}
+    to {transform: translateY(-120vh) scale(1.2); filter: blur(2px);}
+}
+
+/* High-tech header */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    background: rgba(0,0,0,0.9);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 0 20px var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+#logo {
+    height: 60px;
+    width: auto;
+    filter: drop-shadow(0 0 10px var(--primary-color));
+}
+
+nav a {
+    margin: 0 0.75rem;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 500;
+    text-shadow: var(--glow);
+    transition: all 0.3s;
+}
+
+nav a:hover {
+    color: var(--secondary-color);
+    text-shadow: 0 0 15px var(--secondary-color);
+}
+
+h1 {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-shadow: var(--glow);
+}
+
+/* Sections with dark, glowing borders */
+section {
+    background: var(--surface-color);
+    margin: 2rem auto;
+    padding: 1.5rem 2rem;
+    max-width: 900px;
+    border-radius: 0;
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+    position: relative;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+    border-radius: 0;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    text-shadow: var(--glow);
+    border-bottom: 1px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+}
+
+/* Table with high-tech styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+    background: var(--surface-color);
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+}
+
+th, td {
+    border: 1px solid var(--accent-color);
+    padding: 0.75rem;
+    text-align: left;
+}
+
+tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+thead {
+    background: var(--primary-color);
+    color: #000;
+    text-shadow: none;
+}
+
+tbody tr:hover {
+    background: rgba(0, 255, 65, 0.1);
+    box-shadow: 0 0 5px var(--primary-color);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    text-shadow: 0 0 5px var(--primary-color);
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Add some glitch effect on hover for sections */
+section:hover {
+    animation: glitch 0.3s;
+}
+
+@keyframes glitch {
+    0% {transform: translate(0);}
+    20% {transform: translate(-2px, 2px);}
+    40% {transform: translate(-2px, -2px);}
+    60% {transform: translate(2px, 2px);}
+    80% {transform: translate(2px, -2px);}
+    100% {transform: translate(0);}
+}
+
+/* Sponsors section */
+.sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.sponsor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.sponsor:hover {
+    box-shadow: 0 0 15px var(--primary-color);
+    transform: scale(1.05);
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #000;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+}
+
+.sponsor span {
+    font-size: 0.9rem;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.sponsor-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: underline;
+    font-family: inherit;
+}
+
+.sponsor-btn:hover {
+    color: var(--secondary-color);
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+    background: var(--surface-color);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid var(--primary-color);
+    width: 80%;
+    max-width: 600px;
+    border-radius: 0;
+    box-shadow: 0 0 20px var(--primary-color);
+}
+
+.close {
+    color: var(--text-color);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: var(--secondary-color);
+}
+
+#modal-body h2 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+#modal-body p {
+    line-height: 1.6;
+}
+
+/* Speakers page styles */
+.speakers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.speaker {
+    background: var(--surface-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: var(--glow);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.speaker:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px var(--primary-color);
+}
+
+.speaker img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 2px solid var(--primary-color);
+}
+
+.speaker-btn {
+    background: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.speaker-btn:hover {
+    background: var(--secondary-color);
+    box-shadow: 0 0 10px var(--secondary-color);
+}
+
+#speakers {
+    padding: 20px;
+    text-align: center;
+}
